@@ -1,5 +1,4 @@
 <script>
-  const name =" MEIL LISAL"
+  import MainBody from "./components/MainBody.svelte";
 </script>
-
-<div class="text-blue-700">Hello {name}</div>
+<MainBody/>
