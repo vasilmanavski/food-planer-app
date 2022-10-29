@@ -1,23 +1,31 @@
 export class Ingredient {
   private name: string;
-  private _amount: number;
-  private _unit: any;
-  private _totalProteins: number;
-  private _totalFat: number;
-  private _image: string;
-  private _totalCarbohydrates: number;
-  constructor(name: string, amount: number, unit, totalProteins: number, totalFat: number, totalCarbohydrates: number,
+  private amount: number;
+  private unit: any;
+  private totalProteins: number;
+  private totalFat: number;
+  private image: string;
+  private totalCarbohydrates: number;
+  constructor(name: string, amount: number, unit: string, totalProteins: number, totalFat: number, totalCarbohydrates: number,
               image64: string) {
     this.name = name;
-    this._amount = amount;
-    this._unit = unit;
-    this._totalProteins = totalProteins;
-    this._totalFat = totalFat;
-    this._totalCarbohydrates = totalCarbohydrates;
-    this._image = image64;
+    this.amount = amount;
+    this.unit = unit;
+    this.totalProteins = totalProteins;
+    this.totalFat = totalFat;
+    this.totalCarbohydrates = totalCarbohydrates;
+    this.image = image64;
   }
 
-  getName() {
-    return this.name;
+  static getFormParams() {
+    return ['name','amount','unit','totalProteins','totalFat','image','totalCarbohydrates'];
+  }
+
+  static getInputFormAction() {
+    return 'api/insert/ingredient';
+  }
+
+  static getNewInstance() {
+    return new Ingredient(null, null, null, null, null, null, null);
   }
 }
