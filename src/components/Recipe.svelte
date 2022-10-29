@@ -7,7 +7,7 @@
 <div class="flex flex-wrap m-10">
   {#each recipes.hits as {recipe}}
     <div class="max-w-md rounded overflow-hidden shadow-lg grow sm-4">
-      <img class="max-w-full" src="https://thumbs.dreamstime.com/b/serving-spicy-beef-lasagne-restaurant-traditional-italian-modern-white-square-plate-red-napkin-dark-counter-64979715.jpg" alt="Sunset in the mountains">
+      <img class="max-w-full" src="{recipe['image']}" alt="Sunset in the mountains">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{recipe['label']}</div>
         <p class="no-underline hover:underline text-blue-600">
