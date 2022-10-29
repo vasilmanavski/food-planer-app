@@ -1,5 +1,6 @@
 <script lang="ts">
-  import {recipes} from "../lib/data/data";
+
+  export let recipes;
 
 </script>
 
