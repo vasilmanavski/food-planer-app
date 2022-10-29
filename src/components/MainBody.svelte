@@ -1,4 +1,4 @@
 <script lang="ts">
-  import Recipe from "./Recipe.svelte";
+  import FridgeFormComponent from "./forms/FridgeFormComponent.svelte";
 </script>
-<Recipe/>
+<FridgeFormComponent/>
