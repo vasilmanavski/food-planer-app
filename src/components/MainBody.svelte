@@ -1,13 +1,14 @@
 <script lang="ts">
   import IngredientForm from './IngredientForm.svelte';
-  import {derivedIngredient} from '../store';
+  import { derivedIngredient, derivedCarbs, derivedProteins, derivedFats, derivedKcals } from '../store';
   import Header from './Header.svelte';
   import {RecipeController} from "../lib/data/controller/RecipeController";
   let Recipe;
 
   let result = "";
   async function fetchRecipes() {
-    result = await RecipeController.fetchRecipes($derivedIngredient)
+    result = await RecipeController.fetchRecipes($derivedIngredient, $derivedCarbs, $derivedFats, $derivedProteins, $derivedKcals)
+    console.log(result)
     Recipe = (await import('./Recipe.svelte')).default;
   }
 </script>
