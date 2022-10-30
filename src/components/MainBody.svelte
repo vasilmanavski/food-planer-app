@@ -2,26 +2,13 @@
   import IngredientForm from './IngredientForm.svelte';
   import {derivedIngredient} from '../store';
   import Header from './Header.svelte';
-  const apiURL = "https://api.edamam.com/api/recipes/v2?type=public";
-  const apiKey = "4cdaa1065747c8199fb12f63cba9224f";
-  const apiId = "1b75121c";
-
+  import {RecipeController} from "../lib/data/controller/RecipeController";
   let Recipe;
 
   let result = "";
-
-  export async function fetchRecipes() {
-      const response = await fetch(`${apiURL}&app_id=${apiId}&app_key=${apiKey}&q=${$derivedIngredient}`, {
-          method: 'GET',
-          cache: 'no-cache',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-      })
-      const json = await response.json()
-      result = json;
-      console.log(json)
-      Recipe = (await import('./Recipe.svelte')).default;
+  async function fetchRecipes() {
+    result = await RecipeController.fetchRecipes($derivedIngredient)
+    Recipe = (await import('./Recipe.svelte')).default;
   }
 </script>
 
